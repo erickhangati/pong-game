@@ -1,12 +1,17 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 
 # Screen setup
 screen = Screen()
 screen.setup(width=800, height=600)
 screen.bgcolor("black")
 screen.title("Pong Game")
+
+# Scores
+scores_left = Scoreboard("left")
+scores_right = Scoreboard("right")
 
 # Paddle instances
 paddle_left = Paddle("left")
@@ -25,10 +30,21 @@ screen.onkey(key="s", fun=paddle_left.move_down)
 game_on = ball.game_on
 
 while game_on:
+    # Move ball
     ball.forward(10)
 
-    if ball.xcor() >= 385 or ball.xcor() <= -400:
+    # Detect wall collision and update scores
+    if ball.xcor() >= 385:
+        scores_left.update_scores()
         break
+    elif ball.xcor() <= -400:
+        scores_right.update_scores()
+        break
+
+    if ball.distance(paddle_right) == 10:
+        ball.setheading(180)
+    elif ball.distance(paddle_left) == 10:
+        ball.setheading(0)
 
 # Keep screen on
 screen.exitonclick()

@@ -11,9 +11,12 @@ class Ball(Turtle):
         self.penup()
         self.speed(3)
         self.start_ball()
-        self.setheading(180)
 
     def start_ball(self):
+        """
+        Start ball movement.
+        :return: None
+        """
         start_game = textinput("Pong", "Enter YES to start")
         if start_game.lower() == "yes":
             self.game_on = True
