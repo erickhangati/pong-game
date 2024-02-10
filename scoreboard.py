@@ -5,6 +5,7 @@ class Scoreboard(Turtle):
     def __init__(self, position):
         super().__init__()
         self.scores = 0
+        self.name = ''
         self.position = position
         self.hideturtle()
         self.penup()
@@ -20,15 +21,21 @@ class Scoreboard(Turtle):
         """
         if self.position == "left":
             self.goto(-200, 280)
+            self.name = "Player 1"
         else:
             self.goto(200, 280)
+            self.name = "Player 2"
+
+    def update_names(self):
+        self.clear()
+        self.display_score()
 
     def display_score(self):
         """
        Display contact on screen
        :return: None
        """
-        self.write(f"Scores: {self.scores}", font=('Courier', 12, "normal"), align="center")
+        self.write(f"{self.name}'s Scores: {self.scores}", font=('Courier', 12, "normal"), align="center")
 
     def update_scores(self):
         self.clear()
