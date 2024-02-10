@@ -8,6 +8,7 @@ class Paddle(Turtle):
     def __init__(self, position):
         super().__init__()
         self.position = position
+        self.hideturtle()
         self.color("white")
         self.shape("square")
         self.shapesize(stretch_wid=0.5, stretch_len=5)
@@ -16,6 +17,7 @@ class Paddle(Turtle):
         self.set_side()
         self.goto(self.x, self.y)
         self.setheading(90)
+        self.showturtle()
 
     def set_side(self):
         """
@@ -29,7 +31,7 @@ class Paddle(Turtle):
 
     def move_up(self):
         """
-        Move paddle up.
+        Move the paddle up.
         :return: None
         """
         if not self.ycor() >= 250:
@@ -38,7 +40,7 @@ class Paddle(Turtle):
 
     def move_down(self):
         """
-        Move paddle down.
+        Move the paddle down.
         :return: None
         """
         if not self.ycor() <= -230:
