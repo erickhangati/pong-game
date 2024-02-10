@@ -8,7 +8,6 @@ class Paddle(Turtle):
     def __init__(self, position):
         super().__init__()
         self.position = position
-        self.hideturtle()
         self.color("white")
         self.shape("square")
         self.shapesize(stretch_wid=0.5, stretch_len=5)
@@ -17,7 +16,6 @@ class Paddle(Turtle):
         self.set_side()
         self.goto(self.x, self.y)
         self.setheading(90)
-        self.showturtle()
 
     def set_side(self):
         """
