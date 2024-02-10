@@ -1,4 +1,5 @@
 from turtle import Turtle, textinput
+from random import randint
 
 
 class Ball(Turtle):
@@ -9,8 +10,9 @@ class Ball(Turtle):
         self.shapesize(0.5)
         self.color("white")
         self.penup()
-        self.speed(3)
+        self.speed(1)
         self.start_ball()
+        self.setheading(randint(0, 360))
 
     def start_ball(self):
         """

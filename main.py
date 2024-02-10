@@ -41,10 +41,10 @@ while game_on:
         scores_right.update_scores()
         break
 
-    if ball.distance(paddle_right) == 10:
-        ball.setheading(180)
-    elif ball.distance(paddle_left) == 10:
-        ball.setheading(0)
+    if ball.distance(paddle_right) < 10 or ball.distance(
+            paddle_left) < 10 or ball.ycor() >= 290 or ball.ycor() <= -280:
+        ball.setheading(360 - ball.heading())
+        # break
 
 # Keep screen on
 screen.exitonclick()
