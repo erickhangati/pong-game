@@ -18,7 +18,29 @@ class Paddle(Turtle):
         self.setheading(90)
 
     def set_side(self):
+        """
+        Set paddle side.
+        :return: None
+        """
         if self.position == "left":
             self.x = -390
         else:
             self.x = 380
+
+    def move_up(self):
+        """
+        Move paddle up.
+        :return: None
+        """
+        if not self.ycor() >= 250:
+            self.setheading(90)
+            self.forward(20)
+
+    def move_down(self):
+        """
+        Move paddle down.
+        :return: None
+        """
+        if not self.ycor() <= -230:
+            self.setheading(270)
+            self.forward(20)
